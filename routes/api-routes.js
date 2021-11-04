@@ -1,6 +1,10 @@
 const fs = require('fs');
+const cuid = require('cuid');
 const router = require('express').Router();
 
+// function createNewNote(body, notesArray) {
+//     const
+// }
 
 router.get('/api/notes', (req, res) => {
     fs.readFile('./db/db.json', (err, data) => {
@@ -14,7 +18,8 @@ router.get('/api/notes', (req, res) => {
 
 router.post('/api/notes', (req, res) => {
     let newNote = req.body;
-    // newNotes.id = notes.length
+    // console.log('testing id creation: ', cuid());
+    // newNotes.id = notes.push(cuid());
     fs.readFile('./db/db.json', (err, data) => {
         if (err) {
             throw err;
